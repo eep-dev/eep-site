@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Sun, Moon, Github } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 
@@ -10,7 +11,15 @@ export default function Header() {
         <header className="header">
             <div className="header-inner">
                 <Link href="/" className="header-logo">
-                    EEP <span className="protocol-badge">v0.1</span>
+                    <Image
+                        src="/eep-logo.png"
+                        alt="EEP"
+                        width={32}
+                        height={32}
+                        className="header-logo-image"
+                        priority
+                    />
+                    <span className="protocol-badge">v0.1</span>
                 </Link>
                 <nav>
                     <ul className="header-nav">

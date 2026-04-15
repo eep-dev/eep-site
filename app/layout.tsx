@@ -20,12 +20,25 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "EEP — Entity Engagement Protocol",
   description: "The open standard for real-time, agent-native communication between digital entities. Zero-trust by design with fail-closed gates, compliance scoring, and machine-actionable onboarding.",
+  icons: {
+    icon: "/eep-logo.png",
+    shortcut: "/eep-logo.png",
+    apple: "/eep-logo.png",
+  },
   openGraph: {
     title: "EEP — Entity Engagement Protocol",
     description: "Agent-native event protocol with strict fail-closed access controls and automated compliance verification.",
     url: "https://eep.dev",
     siteName: "EEP",
     type: "website",
+    images: [
+      {
+        url: "/eep-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "EEP — Entity Engagement Protocol",
+      },
+    ],
   },
 };
 

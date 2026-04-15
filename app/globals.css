@@ -575,6 +575,17 @@ h3 {
   transition: opacity 0.15s;
 }
 
+.header-logo-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: contrast(1.1);
+}
+
+[data-theme="dark"] .header-logo-image {
+  filter: contrast(1.15) brightness(1.1);
+}
+
 .header-logo:hover {
   opacity: 0.7;
 }
