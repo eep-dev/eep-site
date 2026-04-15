@@ -575,24 +575,57 @@ h3 {
   transition: opacity 0.15s;
 }
 
-.header-logo-image {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  filter: contrast(1.08);
-  transition: transform 0.2s ease;
+/* Rounded frame: softens square PNG edges on light backgrounds */
+.header-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.header-logo:hover .header-logo-image {
-  transform: scale(1.05);
+[data-theme="dark"] .header-logo-mark {
+  background: oklch(0.18 0.01 260);
+  border-color: var(--border-subtle);
+  box-shadow: none;
+}
+
+.header-logo-image {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: calc(var(--radius-sm) - 2px);
+  filter: contrast(1.08);
 }
 
 [data-theme="dark"] .header-logo-image {
   filter: contrast(1.15) brightness(1.08);
 }
 
+.header-logo:hover .header-logo-mark {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-border);
+}
+
+[data-theme="dark"] .header-logo:hover .header-logo-mark {
+  border-color: var(--border);
+  box-shadow: 0 0 0 1px oklch(0.65 0.15 160 / 0.2);
+}
+
 .header-logo:hover {
-  opacity: 0.7;
+  opacity: 0.92;
 }
 
 .header-logo .protocol-badge {

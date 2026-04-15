@@ -11,14 +11,16 @@ export default function Header() {
         <header className="header">
             <div className="header-inner">
                 <Link href="/" className="header-logo">
-                    <Image
-                        src="/eep-logo-small.png"
-                        alt="EEP"
-                        width={32}
-                        height={32}
-                        className="header-logo-image"
-                        priority
-                    />
+                    <span className="header-logo-mark">
+                        <Image
+                            src="/eep-logo-small.png"
+                            alt="EEP"
+                            width={28}
+                            height={28}
+                            className="header-logo-image"
+                            priority
+                        />
+                    </span>
                     <span className="protocol-badge">v0.1</span>
                 </Link>
                 <nav>
