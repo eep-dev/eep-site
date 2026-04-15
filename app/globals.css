@@ -1069,6 +1069,213 @@ h3 {
   border: none;
 }
 
+/* Specification: diagram panels (avoid ASCII that breaks on narrow viewports) */
+.architecture-diagram,
+.lifecycle-diagram,
+.commerce-state-diagram {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  box-shadow: 0 2px 12px oklch(0 0 0 / 0.15);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: var(--code-text);
+  line-height: 1.55;
+}
+
+.architecture-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.lifecycle-steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.lifecycle-steps > li {
+  padding-left: 0.35rem;
+}
+
+.lifecycle-steps strong {
+  color: oklch(0.82 0.02 260);
+  font-weight: 600;
+}
+
+.lifecycle-branch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+  list-style: none;
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-xs) 0 0;
+  border-left: 2px solid oklch(0.45 0.06 200 / 0.5);
+  background: oklch(0.11 0.015 260);
+  border-radius: var(--radius-sm);
+}
+
+.lifecycle-branch li {
+  font-size: 0.76rem;
+  color: oklch(0.78 0.02 260);
+}
+
+@media (max-width: 520px) {
+  .lifecycle-branch {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prose .commerce-state-diagram h4 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: oklch(0.7 0.03 200);
+  margin: 0 0 var(--space-xs);
+}
+
+.commerce-state-diagram .commerce-block + .commerce-block {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px dashed oklch(0.35 0.02 260);
+}
+
+.commerce-state-diagram p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: oklch(0.85 0.01 260);
+}
+
+.commerce-state-diagram ul {
+  margin: var(--space-xs) 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.74rem;
+  color: oklch(0.72 0.02 260);
+}
+
+.commerce-state-diagram .commerce-terminals {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid oklch(0.3 0.02 260);
+  font-size: 0.74rem;
+  color: oklch(0.65 0.02 260);
+}
+
+.arch-card {
+  border: 1px solid oklch(0.35 0.02 260);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  text-align: center;
+  background: oklch(0.09 0.015 260);
+}
+
+.arch-card-wide {
+  max-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.arch-card-bus {
+  border-color: oklch(0.5 0.08 200 / 0.45);
+  background: oklch(0.11 0.02 250);
+}
+
+.arch-card-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--code-text);
+}
+
+.arch-card-sub {
+  margin-top: 0.25rem;
+  font-size: 0.72rem;
+  color: oklch(0.72 0.02 260);
+  line-height: 1.45;
+}
+
+.arch-connector-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xs) 0;
+  gap: 0;
+}
+
+.arch-connector-line {
+  width: 1px;
+  flex: 1;
+  min-height: 0.65rem;
+  background: oklch(0.45 0.02 260);
+}
+
+.arch-connector-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: oklch(0.55 0.02 260);
+  padding: 0.15rem 0;
+}
+
+.arch-fanout-rule {
+  height: 1px;
+  margin: var(--space-md) 0 var(--space-sm);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.4 0.03 200 / 0.6) 15%,
+    oklch(0.4 0.03 200 / 0.6) 85%,
+    transparent
+  );
+}
+
+.arch-outputs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.arch-output-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.arch-output-arrow {
+  font-size: 0.65rem;
+  color: oklch(0.55 0.02 260);
+  line-height: 1;
+}
+
+.arch-card-out {
+  width: 100%;
+  min-height: 4.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .arch-outputs {
+    grid-template-columns: 1fr;
+  }
+
+  .arch-card-wide {
+    max-width: none;
+  }
+}
+
 .prose table {
   width: 100%;
   border-collapse: collapse;

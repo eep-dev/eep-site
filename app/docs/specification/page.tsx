@@ -40,22 +40,56 @@ export default function SpecificationPage() {
 
             {/* ── Architecture ─────────────────────────────── */}
             <h2>2. Architecture Overview</h2>
-            <pre><code>{`                ┌─────────────────────────────────┐
-                │         EEP PUBLISHER           │
-                │  (Any EEP-compliant Platform)  │
-                └──────────┬──────────────────────┘
-                           │  emits events
-                           ▼
-                ┌─────────────────────────────────┐
-                │       EEP EVENT BUS             │
-                │  (Redis Streams / RabbitMQ)     │
-                └──────────┬──────────────────────┘
-          ┌────────────────┼──────────────────┐
-          ▼                ▼                  ▼
-┌──────────────┐  ┌──────────────┐  ┌──────────────────┐
-│  SSE Stream  │  │   Webhooks   │  │   WebSockets     │
-│  (Layer 2a)  │  │  (Layer 2b)  │  │    (Layer 3)     │
-└──────────────┘  └──────────────┘  └──────────────────┘`}</code></pre>
+            <p>
+                A publisher emits events into an internal bus; subscribers receive them over the signal stream (SSE and
+                webhooks) and optionally over the network pulse (WebSockets). The diagram shows <strong>three</strong>{' '}
+                fan-out paths, not a fourth unnamed channel.
+            </p>
+            <div className="architecture-diagram" aria-label="EEP architecture: publisher, event bus, three delivery paths">
+                <div className="arch-card arch-card-wide">
+                    <div className="arch-card-title">EEP publisher</div>
+                    <div className="arch-card-sub">Any EEP-compliant platform</div>
+                </div>
+                <div className="arch-connector-vertical" aria-hidden>
+                    <span className="arch-connector-line" />
+                    <span className="arch-connector-label">emits events</span>
+                    <span className="arch-connector-line" />
+                </div>
+                <div className="arch-card arch-card-wide arch-card-bus">
+                    <div className="arch-card-title">EEP event bus</div>
+                    <div className="arch-card-sub">Redis Streams / RabbitMQ (example)</div>
+                </div>
+                <div className="arch-fanout-rule" aria-hidden />
+                <div className="arch-outputs">
+                    <div className="arch-output-col">
+                        <span className="arch-output-arrow" aria-hidden>
+                            ▼
+                        </span>
+                        <div className="arch-card arch-card-out">
+                            <div className="arch-card-title">SSE stream</div>
+                            <div className="arch-card-sub">Layer 2a</div>
+                        </div>
+                    </div>
+                    <div className="arch-output-col">
+                        <span className="arch-output-arrow" aria-hidden>
+                            ▼
+                        </span>
+                        <div className="arch-card arch-card-out">
+                            <div className="arch-card-title">Webhooks</div>
+                            <div className="arch-card-sub">Layer 2b</div>
+                        </div>
+                    </div>
+                    <div className="arch-output-col">
+                        <span className="arch-output-arrow" aria-hidden>
+                            ▼
+                        </span>
+                        <div className="arch-card arch-card-out">
+                            <div className="arch-card-title">WebSockets</div>
+                            <div className="arch-card-sub">Layer 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* ── Layer 1 ──────────────────────────────────── */}
             <h2>3. Layer 1: State Resolution</h2>
@@ -291,16 +325,34 @@ Examples:
 
             {/* ── Subscription Lifecycle ───────────────────── */}
             <h2>10. Subscription Lifecycle</h2>
-            <pre><code>{`POST /subscribe → [pending_verification]
-                        │
-        Publisher sends GET challenge to delivery_url
-                        │
-                  Success → [active]
-                  Failure → [rejected]
-
-               [active] → event delivery
-                        → 5 consecutive failures → [paused]
-                        → POST /subscriptions/:id/resume → [active]`}</code></pre>
+            <div className="lifecycle-diagram" aria-label="Subscription lifecycle">
+                <ol className="lifecycle-steps">
+                    <li>
+                        <strong>Subscribe</strong> — <code>POST /subscribe</code> creates state{' '}
+                        <code>pending_verification</code>.
+                    </li>
+                    <li>
+                        Publisher sends a <strong>GET verification challenge</strong> to the subscriber&apos;s{' '}
+                        <code>delivery_url</code>.
+                    </li>
+                    <li>
+                        Verification outcome:
+                        <ul className="lifecycle-branch">
+                            <li>
+                                <strong>Success</strong> → <code>active</code>
+                            </li>
+                            <li>
+                                <strong>Failure</strong> → <code>rejected</code>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        While <code>active</code>: deliver events. After <strong>5 consecutive delivery failures</strong> →{' '}
+                        <code>paused</code>. Use <code>POST /subscriptions/:id/resume</code> to return to{' '}
+                        <code>active</code>.
+                    </li>
+                </ol>
+            </div>
 
             {/* ── Auth ─────────────────────────────────────── */}
             <h2>11. Authentication and Authorization</h2>
@@ -399,14 +451,39 @@ Retry-After: 120`}</code></pre>
             </table>
 
             <h3>Commerce Negotiation State Machine</h3>
-            <pre><code>{`offer → [open] → counter → [countered] → accept → [accepted]
-                                        → reject → [rejected]
-                         → expire  → [expired]
-
-[accepted] → invoice → [invoiced] → receipt → [paid] → complete → [completed]
-
-Any active state → dispute → [disputed]`}</code></pre>
-            <p>Terminal states: <code>rejected</code>, <code>expired</code>, <code>completed</code>.</p>
+            <div className="commerce-state-diagram" aria-label="Commerce negotiation state machine">
+                <div className="commerce-block">
+                    <h4>Negotiation</h4>
+                    <p>
+                        <code>offer</code> → <code>[open]</code> → <code>counter</code> → <code>[countered]</code> →{' '}
+                        <code>accept</code> → <code>[accepted]</code>
+                    </p>
+                    <ul>
+                        <li>
+                            From <code>[countered]</code>: <code>reject</code> → <code>[rejected]</code>
+                        </li>
+                        <li>
+                            From <code>[open]</code>: <code>expire</code> → <code>[expired]</code>
+                        </li>
+                    </ul>
+                </div>
+                <div className="commerce-block">
+                    <h4>Fulfillment</h4>
+                    <p>
+                        <code>[accepted]</code> → <code>invoice</code> → <code>[invoiced]</code> → <code>receipt</code> →{' '}
+                        <code>[paid]</code> → <code>complete</code> → <code>[completed]</code>
+                    </p>
+                </div>
+                <div className="commerce-block">
+                    <h4>Exception</h4>
+                    <p>
+                        Any active state → <code>dispute</code> → <code>[disputed]</code>
+                    </p>
+                </div>
+                <p className="commerce-terminals">
+                    Terminal states: <code>rejected</code>, <code>expired</code>, <code>completed</code>.
+                </p>
+            </div>
         </>
     );
 }
