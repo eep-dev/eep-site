@@ -579,11 +579,16 @@ h3 {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: contrast(1.1);
+  filter: contrast(1.08);
+  transition: transform 0.2s ease;
+}
+
+.header-logo:hover .header-logo-image {
+  transform: scale(1.05);
 }
 
 [data-theme="dark"] .header-logo-image {
-  filter: contrast(1.15) brightness(1.1);
+  filter: contrast(1.15) brightness(1.08);
 }
 
 .header-logo:hover {

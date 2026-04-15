@@ -12,7 +12,7 @@ export default function Header() {
             <div className="header-inner">
                 <Link href="/" className="header-logo">
                     <Image
-                        src="/eep-logo.png"
+                        src="/eep-logo-small.png"
                         alt="EEP"
                         width={32}
                         height={32}
