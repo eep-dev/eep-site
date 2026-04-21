@@ -29,6 +29,7 @@ export default function Header() {
                         <li><Link href="/docs/specification">Specification</Link></li>
                         <li><Link href="/docs/packages">Packages</Link></li>
                         <li><Link href="/playground">Playground</Link></li>
+                        <li><Link href="/adopters">Adopters</Link></li>
                         <li><a href="https://github.com/eep-dev/EEP" target="_blank" rel="noopener" aria-label="GitHub" style={{ display: 'flex', alignItems: 'center' }}><Github size={17} /></a></li>
                         <li>
                             <button
