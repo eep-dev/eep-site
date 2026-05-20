@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   title: "EEP — Entity Engagement Protocol",
   description: "The open standard for real-time, agent-native communication between digital entities. Zero-trust by design with fail-closed gates, compliance scoring, and machine-actionable onboarding.",
   icons: {
-    icon: "/favicon.png",
+    icon: [{ url: "/favicon.png", sizes: "32x32", type: "image/png" }],
     shortcut: "/favicon.png",
-    apple: "/apple-touch-icon.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: "EEP — Entity Engagement Protocol",
