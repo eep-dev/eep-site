@@ -71,9 +71,10 @@ const sections = [
             { href: '/docs/schemas', label: 'JSON Schemas' },
             { href: '/docs/events', label: 'Event Catalog' },
             { href: '/playground', label: 'Interactive Playground' },
+            { href: '/whitepaper', label: 'Whitepaper' },
             {
                 href: 'https://github.com/eep-dev/EEP/blob/main/docs/WHITEPAPER.tex',
-                label: 'Whitepaper (Discovery & GEO context) ↗',
+                label: 'Whitepaper — LaTeX source ↗',
             },
             {
                 href: 'https://github.com/eep-dev/EEP/blob/main/docs/guides/langgraph-eep-agent.md',

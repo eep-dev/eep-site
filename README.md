@@ -42,7 +42,24 @@ Before release, confirm these are reflected in site content:
 - Canonical adoption links (agent onboarding + enterprise playbook)
 - Repository URLs under `eep-dev`
 
+## Whitepaper PDF (`/whitepaper`)
+
+The site serves the EEP technical whitepaper as a paginated PDF at `/whitepaper` (production: `https://eep.dev/whitepaper`).
+
+Before `npm run build`, generate the PDF in the protocol repo and let prebuild copy it into `public/docs/`:
+
+```bash
+cd ../EEP/docs && pdflatex WHITEPAPER.tex && pdflatex WHITEPAPER.tex
+cd ../../eep-site && npm install && npm run build
+```
+
+`postinstall` / `prebuild` also copy `pdf.worker.min.mjs` from `pdfjs-dist` for the in-browser viewer.
+
 ## Deployment
 
 Deploy using your preferred platform (Vercel, Netlify, container-based deployment, etc.).
 Keep production environment variables and domain configuration in sync with the `eep-dev` organization setup.
+
+For production, ensure `WHITEPAPER.pdf` exists at build time (run `pdflatex` in CI or commit `public/docs/WHITEPAPER.pdf` after each whitepaper release).
+
+**Docker (`docker compose build`):** the image copies `scripts/` before `npm ci` (postinstall needs them). The build context is only `eep-site/`, so commit `public/docs/WHITEPAPER.pdf` or generate it locally before `docker compose up --build` — the container cannot reach `../EEP/docs`.

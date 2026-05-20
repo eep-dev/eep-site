@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated PDF viewer assets (copy-pdf-worker / sync-whitepaper-pdf)
+/public/pdf.worker.min.mjs

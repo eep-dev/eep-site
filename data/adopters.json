@@ -12,10 +12,19 @@
       "conformance": "n/a (tooling and spec; not a live API product)"
     },
     {
+      "id": "more-md",
+      "name": "more.md",
+      "kind": "reference",
+      "description": "Production reference implementation. EEP originated here and was extracted into the open spec; more.md exercises every conformance tier (Core, Standard, Full), all gate types, the commerce state machine, and the WebSocket pulse end-to-end.",
+      "url": "https://more.md",
+      "source": null,
+      "conformance": "full"
+    },
+    {
       "id": "eep-reference-implementation",
       "name": "EEP reference stack (Docker)",
       "kind": "reference",
-      "description": "Node + Python + Postgres + Redis example deployment for behavior and parity testing (informally eep-api).",
+      "description": "In-tree minimal Node + Python + Postgres + Redis Compose project used by contributors and CI for behavior and parity testing (informally eep-api).",
       "url": null,
       "source": "https://github.com/eep-dev/EEP/tree/main/examples/eep-reference-implementation",
       "conformance": "core"

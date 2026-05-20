@@ -27,6 +27,7 @@ export default function Header() {
                     <ul className="header-nav">
                         <li><Link href="/docs">Docs</Link></li>
                         <li><Link href="/docs/specification">Specification</Link></li>
+                        <li><Link href="/whitepaper">Whitepaper</Link></li>
                         <li><Link href="/docs/packages">Packages</Link></li>
                         <li><Link href="/playground">Playground</Link></li>
                         <li><Link href="/adopters">Adopters</Link></li>

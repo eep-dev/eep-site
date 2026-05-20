@@ -353,6 +353,7 @@ Link: <.../subscribe>; rel="subscribe"`} />
             <p className="section-p">
               Run the dual-runtime Docker reference, or wire <code className="code-inline">eep-setup</code> and middleware into your own repo.
               The five-minute proof paths cover Compose, CLI-only flows, and a minimal Express example — then add CI checks for EEP-ready artifacts and full compliance tiers.
+              For a full production deployment that exercises every conformance tier and gate type, see <a href="https://more.md" target="_blank" rel="noopener noreferrer">more.md</a> — the platform where EEP originated.
             </p>
             <ul>
               <li><Link href="/docs/guides/quick-setup">Quick setup (CLI + integration) →</Link></li>
@@ -506,7 +507,7 @@ Link: <.../subscribe>; rel="subscribe"`} />
               <div>
                 <h2 className="cta-h2">Open source. No committee. No waiting.</h2>
                 <p className="cta-p">
-                  Apache 2.0. Implement it today. File an EEIP if you need to change it.
+                  Apache 2.0. Developed at <a href="https://more.md" target="_blank" rel="noopener noreferrer">more.md</a>, open for the agentic web. Implement it today. File an EEIP if you need to change it.
                 </p>
               </div>
               <div className="hero-actions">

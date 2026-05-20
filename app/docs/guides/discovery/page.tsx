@@ -21,8 +21,9 @@ export default function DiscoveryGuidePage() {
                 Industry and research discussions of <strong>generative engine optimization (GEO)</strong> focus on how sources are selected and cited inside LLM-mediated answers. EEP does not guarantee rankings or citations. It does provide structured discovery and policy gates so automated clients can find verifiable endpoints without scraping marketing HTML.
             </p>
             <p>
-                See the <a href="https://github.com/eep-dev/EEP/blob/main/docs/WHITEPAPER.tex" target="_blank" rel="noopener noreferrer">EEP Whitepaper</a>{' '}
-                (Discovery chapter, including &quot;Manifests, sitemaps, and generative retrieval&quot;) for narrative and citations. The{' '}
+                See the <Link href="/whitepaper">EEP Whitepaper</Link>{' '}
+                (Discovery chapter, including &quot;Manifests, sitemaps, and generative retrieval&quot;;{' '}
+                <a href="https://github.com/eep-dev/EEP/blob/main/docs/WHITEPAPER.tex" target="_blank" rel="noopener noreferrer">LaTeX source</a>) for narrative and citations. The{' '}
                 <Link href="/docs/specification">normative specification</Link> §12 defines wire requirements only.
             </p>
 

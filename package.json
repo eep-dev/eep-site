@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "node scripts/copy-pdf-worker.cjs && node scripts/sync-whitepaper-pdf.cjs",
+    "postinstall": "node scripts/copy-pdf-worker.cjs",
     "start": "next start"
   },
   "dependencies": {
@@ -15,7 +17,8 @@
     "next": "16.2.3",
     "prism-react-renderer": "^2.4.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-pdf": "^10.4.1"
   },
   "devDependencies": {
     "@types/node": "^20",

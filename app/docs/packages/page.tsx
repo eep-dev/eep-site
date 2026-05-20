@@ -112,7 +112,7 @@ invalid = transition("open", "complete")
             <p>
                 Discovery utilities for agents: validate <code>/.well-known/eep.json</code> manifests, parse HTTP <code>Link</code> headers, and parse DNS TXT records. Implements Whitepaper §4. For manifest vs sitemap scope and GEO as <em>informative</em> publisher context (not a protocol test), see{' '}
                 <Link href="/docs/guides/discovery">Discovery</Link> and the{' '}
-                <a href="https://github.com/eep-dev/EEP/blob/main/docs/WHITEPAPER.tex" target="_blank" rel="noopener noreferrer">Whitepaper</a>.
+                <Link href="/whitepaper">Whitepaper</Link>.
             </p>
             <CodeTabs label="Discovery"
                 ts={`import { validateManifest, parseLinkHeader, parseDnsTxtRecord } from '@eep-dev/discovery';

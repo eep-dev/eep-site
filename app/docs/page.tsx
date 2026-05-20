@@ -96,7 +96,8 @@ export default function DocsOverview() {
             </p>
             <p>
                 Read <Link href="/docs/guides/discovery">Discovery (manifest / DNS)</Link> and the{' '}
-                <a href="https://github.com/eep-dev/EEP/blob/main/docs/WHITEPAPER.tex" target="_blank" rel="noopener noreferrer">Whitepaper</a>{' '}
+                <Link href="/whitepaper">Whitepaper</Link>{' '}
+                (<a href="https://github.com/eep-dev/EEP/blob/main/docs/WHITEPAPER.tex" target="_blank" rel="noopener noreferrer">LaTeX source</a>){' '}
                 for publisher-oriented context. Nothing here promises traffic or citation placement.
             </p>
 
