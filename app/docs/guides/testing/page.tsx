@@ -34,7 +34,7 @@ eep-compliance \\
       <h2>Setup CLI artifact checks</h2>
       <p>
         <code>eep-setup verify</code> (from <a href="/docs/guides/quick-setup">@eep-dev/setup-cli</a>) validates a{' '}
-        <strong>generated artifact tree</strong> (manifests, OpenAPI fragments, etc.) — complementary to the compliance CLI,
+        <strong>generated artifact tree</strong> (manifests, OpenAPI fragments, etc.): complementary to the compliance CLI,
         which exercises a live API. For CI patterns, see{' '}
         <a
           href="https://github.com/eep-dev/EEP/blob/main/docs/guides/eep-ready-verification.md"

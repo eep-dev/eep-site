@@ -27,9 +27,9 @@ export default function SecurityPage() {
             <p>EEP adopts the <a href="https://www.standardwebhooks.com/">Standard Webhooks</a> specification for payload signing.</p>
             <h3>Why HMAC-SHA256?</h3>
             <ul>
-                <li><strong>Symmetric</strong> — Same secret to sign and verify. No PKI needed.</li>
-                <li><strong>Fast</strong> — Milliseconds overhead per dispatch.</li>
-                <li><strong>Universal</strong> — Every major language has built-in HMAC support.</li>
+                <li><strong>Symmetric</strong>: Same secret to sign and verify. No PKI needed.</li>
+                <li><strong>Fast</strong>: Milliseconds overhead per dispatch.</li>
+                <li><strong>Universal</strong>: Every major language has built-in HMAC support.</li>
             </ul>
             <h3>Signing Algorithm</h3>
             <CodeTabs label="HMAC Signing"
@@ -53,23 +53,23 @@ signature = base64.b64encode(
 
             <h3>Timing-Safe Comparison (Mandatory)</h3>
             <CodeTabs label="Verification"
-                ts={`// ✅ CORRECT — timing-safe
+                ts={`// ✅ CORRECT: timing-safe
 import { timingSafeEqual } from 'crypto';
 const valid = timingSafeEqual(
   Buffer.from(expected, 'base64'),
   Buffer.from(received, 'base64')
 );
 
-// ❌ WRONG — timing leak
+// ❌ WRONG: timing leak
 const valid = expected === received;`}
-                py={`# ✅ CORRECT — timing-safe
+                py={`# ✅ CORRECT: timing-safe
 import hmac
 valid = hmac.compare_digest(
     base64.b64decode(expected),
     base64.b64decode(received)
 )
 
-# ❌ WRONG — timing leak
+# ❌ WRONG: timing leak
 valid = expected == received`}
             />
 
@@ -77,10 +77,10 @@ valid = expected == received`}
             <p>If a subscriber registers an internal URL, the publisher could be tricked into making requests to private services.</p>
             <h3>Required Protections</h3>
             <ol>
-                <li><strong>DNS resolution before connection</strong> — Resolve hostname to IP before connecting</li>
-                <li><strong>IP blocklist validation</strong> — Reject loopback, private networks, link-local, and invalid ranges</li>
-                <li><strong>HTTPS only</strong> — Only <code>https://</code> URLs in production</li>
-                <li><strong>No redirect following</strong> — Could bypass IP blocklist</li>
+                <li><strong>DNS resolution before connection</strong>: Resolve hostname to IP before connecting</li>
+                <li><strong>IP blocklist validation</strong>: Reject loopback, private networks, link-local, and invalid ranges</li>
+                <li><strong>HTTPS only</strong>: Only <code>https://</code> URLs in production</li>
+                <li><strong>No redirect following</strong>: Could bypass IP blocklist</li>
             </ol>
 
             <h3>SSRF Validation</h3>
@@ -156,7 +156,7 @@ if res.status_code == 200 and res.text == challenge:
             <ul>
                 <li>SSE streams MUST require authentication (<code>Authorization: Bearer</code> or query parameter)</li>
                 <li>Events flagged as <code>private</code> are only accessible to the entity owner</li>
-                <li>Server-side filtering mandatory — never rely on client-side filtering</li>
+                <li>Server-side filtering mandatory; never rely on client-side filtering</li>
                 <li>Maximum concurrent SSE connections per API key (recommended: 5 free, 20 paid)</li>
             </ul>
 
@@ -227,7 +227,7 @@ if not result.granted:
                 <li>The credential has not expired (<code>expirationDate</code> is in the future)</li>
                 <li>The chain terminates at a DID that directly owns the resource</li>
             </ol>
-            <pre><code>{`// Delegation Proof — Verifiable Credential structure
+            <pre><code>{`// Delegation Proof: Verifiable Credential structure
 {
   "@context": ["https://www.w3.org/ns/credentials/v2"],
   "type": ["VerifiableCredential", "EEPDelegationCredential"],
@@ -246,22 +246,22 @@ if not result.granted:
 
             <h2>9. Side-Channel and Constant-Time Security</h2>
             <p>
-                All gate requirement verifications — credential checks, signature verifications, nonce consumptions
-                — MUST be performed in <strong>constant time</strong>.
+                All gate requirement verifications (credential checks, signature verifications, nonce consumptions)
+                must be performed in <strong>constant time</strong>.
                 Variable-time comparisons leak information about partial matches via timing side-channels.
             </p>
             <ul>
                 <li>Use <code>timingSafeEqual</code> (Node.js) / <code>hmac.compare_digest</code> (Python) for all cryptographic equality checks</li>
-                <li>Error responses for failed verification MUST NOT vary in detail or timing based on <em>why</em> verification failed — a failed signature and a failed nonce check must return the same HTTP status, same response latency, and generic error body</li>
+                <li>Error responses for failed verification MUST NOT vary in detail or timing based on <em>why</em> verification failed; a failed signature and a failed nonce check must return the same HTTP status, same response latency, and generic error body</li>
                 <li>Specific failure reasons are logged internally but <strong>never</strong> surfaced to the requesting agent</li>
             </ul>
-            <pre><code>{`// ✅ Correct — constant-time
+            <pre><code>{`// ✅ Correct: constant-time
 import { timingSafeEqual } from 'crypto';
 const expected = Buffer.from(computeExpectedSig(secret, content), 'base64');
 const actual   = Buffer.from(receivedSig, 'base64');
 const valid = expected.length === actual.length && timingSafeEqual(expected, actual);
 
-// ❌ Wrong — variable-time (leaks timing info)
+// ❌ Wrong: variable-time (leaks timing info)
 const valid = computeExpectedSig(secret, content) === receivedSig;`}</code></pre>
         </>
     );

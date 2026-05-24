@@ -1,4 +1,4 @@
-export const metadata = { title: 'Quick Setup CLI — EEP Docs' };
+export const metadata = { title: 'Quick Setup CLI | EEP Docs' };
 
 export default function QuickSetupPage() {
     return (
@@ -34,7 +34,7 @@ export default function QuickSetupPage() {
                 The CLI binary is <code>eep-setup</code>. From the published package:{' '}
                 <code>npx @eep-dev/setup-cli@latest &lt;command&gt;</code> (same as <code>eep-setup</code> when the package is on your PATH).
                 Inside the EEP monorepo, use <code>node dist/index.js</code> after <code>npm run build</code>, or{' '}
-                <code>npx tsx src/index.ts</code> from <code>packages/@eep-dev/setup-cli</code> — see the full how-to for paths.
+                <code>npx tsx src/index.ts</code> from <code>packages/@eep-dev/setup-cli</code>, see the full how-to for paths.
             </p>
             <pre><code>{`# 1) Create setup config (published / global eep-setup)
 npx @eep-dev/setup-cli@latest init --preset exchange --out ./eep-setup.json

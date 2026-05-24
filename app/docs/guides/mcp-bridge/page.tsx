@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export const metadata = { title: 'MCP↔EEP Bridge — EEP Docs' };
+export const metadata = { title: 'MCP↔EEP Bridge | EEP Docs' };
 
 export default function MCPBridgePage() {
     return (

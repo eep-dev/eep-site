@@ -1,5 +1,5 @@
 /**
- * Left-column lines — Scenario A (bloated HTML, paywall, human-in-the-loop checkout,
+ * Left-column lines, Scenario A (bloated HTML, paywall, human-in-the-loop checkout,
  * re-fetch, table extraction → JSON). Sequential html[] / json[] / table[] for styling.
  */
 
@@ -82,7 +82,7 @@ function buildLeftLogLines(): string[] {
   const out: string[] = [
     'AGENT  GET http://127.0.0.1:3401/reports/corpx-q1',
     '← HTTP 200  text/html  ~482,331 bytes (full document)',
-    'Current web — first-pass HTML parse (agent)',
+    'Current web: first-pass HTML parse (agent)',
     '►SECTION► · HTML · head & transport',
     '►RULE►━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     htmlLine(h++, '<!DOCTYPE html><html lang="en"><head>'),
@@ -90,7 +90,7 @@ function buildLeftLogLines(): string[] {
       h++,
       '<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>',
     ),
-    htmlLine(h++, '<title>CorpX Q1 2026 — Investor snapshot</title>'),
+    htmlLine(h++, '<title>CorpX Q1 2026: Investor snapshot</title>'),
     htmlLine(
       h++,
       '<link rel="preload" href="/_next/static/chunks/main-app.js" as="script"/>',
@@ -113,7 +113,7 @@ function buildLeftLogLines(): string[] {
     htmlLine(h++, '<main class="report-shell"><article class="report-teaser">'),
     htmlLine(
       h++,
-      '<h1>Q1 2026 revenue highlights</h1><p class="lede">Public teaser — subscribe for full segments.</p>',
+      '<h1>Q1 2026 revenue highlights</h1><p class="lede">Public teaser: subscribe for full segments.</p>',
     ),
     htmlLine(h++, '<section data-testid="paywall" class="paywall">'),
     htmlLine(
@@ -136,7 +136,7 @@ function buildLeftLogLines(): string[] {
       '<aside class="promo-banners"><div data-ad="sponsor">Sponsored: Cloud migration guide</div></aside>',
     ),
     htmlLine(h++, '<div id="portal-root"></div>'),
-    '►SECTION► · HTML · embedded JSON (#report-data) — locked until paid',
+    '►SECTION► · HTML · embedded JSON (#report-data): locked until paid',
     '►RULE►━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
   ];
 
@@ -147,11 +147,11 @@ function buildLeftLogLines(): string[] {
 
   out.push(
     'Gates detected: paywall + hidden #report-data (display:none until subscription cookie).',
-    'Playwright — click [data-action=open-checkout] → checkout overlay mounted (#checkout-root).',
+    'Playwright: click [data-action=open-checkout] → checkout overlay mounted (#checkout-root).',
     '►SECTION► · Checkout DOM · Stripe Elements (iframe + card fields)',
     '►RULE►────────────────────────────────────────',
     htmlLine(h++, '<div id="checkout-root" role="dialog" aria-modal="true">'),
-    htmlLine(h++, '<div class="checkout-modal"><h2>Subscribe — CorpX Q1 full report</h2>'),
+    htmlLine(h++, '<div class="checkout-modal"><h2>Subscribe: CorpX Q1 full report</h2>'),
     htmlLine(
       h++,
       '<div class="stripe-frame"><iframe title="Secure payment" src="https://js.stripe.com/v3/elements/…"></iframe></div>',
@@ -169,17 +169,17 @@ function buildLeftLogLines(): string[] {
       '<label>CVC <input autocomplete="cc-csc" placeholder="123"/></label>',
     ),
     htmlLine(h++, '<button type="submit" data-testid="pay-submit">Pay $29/mo</button></div></div>'),
-    'Human step — operator enters test card in headed browser (PAN + expiry + CVC); PCI fields not logged.',
-    'Checkout — mock `payment_intent.succeeded`; `corpx_session` cookie set; overlay closed.',
+    'Human step: operator enters test card in headed browser (PAN + expiry + CVC); PCI fields not logged.',
+    'Checkout: mock `payment_intent.succeeded`; `corpx_session` cookie set; overlay closed.',
     '►SECTION► · Reload · same URL with active session',
     '►RULE►━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     'AGENT  GET http://127.0.0.1:3401/reports/corpx-q1?session=chk_live_demo_9f2a',
     '← HTTP 200  text/html  ~491,880 bytes (unlocked chrome + tables)',
-    'Current web — second-pass HTML parse (post-paywall)',
+    'Current web: second-pass HTML parse (post-paywall)',
     '►SECTION► · HTML · unlocked report · tables + KPI strip',
     '►RULE►────────────────────────────────────────',
     htmlLine(h++, '<!DOCTYPE html><html lang="en"><head>'),
-    htmlLine(h++, '<meta charset="utf-8"/><title>CorpX Q1 2026 — Full report</title></head>'),
+    htmlLine(h++, '<meta charset="utf-8"/><title>CorpX Q1 2026: Full report</title></head>'),
     htmlLine(h++, '<body><main class="report-full">'),
     htmlLine(
       h++,
@@ -207,20 +207,20 @@ function buildLeftLogLines(): string[] {
       '<script type="application/json" id="report-data">{"unlocked":true,"source":"hydration"}</script>',
     ),
     htmlLine(h++, '</main></body></html>'),
-    'Playwright — wait for #segments-kpi tbody tr; scrape cell text; trim & normalize whitespace.',
+    'Playwright: wait for #segments-kpi tbody tr; scrape cell text; trim & normalize whitespace.',
     '►SECTION► · Extracted table · normalized rows (agent)',
     '►RULE►━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     tableLine(0, 'Cloud        | $2.1B  | 31%'),
     tableLine(1, 'Enterprise   | $1.4B  | 18%'),
     tableLine(2, 'Consumer     | $0.7B  | 9%'),
-    'Cleanup — strip currency symbols for compute; keep display strings for JSON string fields.',
-    'Playwright — read #report-data (hydration JSON) + merge with table-derived metrics.',
-    'Current web — merge + JSON.stringify (pretty) → envelope below',
+    'Cleanup: strip currency symbols for compute; keep display strings for JSON string fields.',
+    'Playwright: read #report-data (hydration JSON) + merge with table-derived metrics.',
+    'Current web: merge + JSON.stringify (pretty) → envelope below',
     '►SECTION► · JSON · final envelope (DOM + table merge)',
     '►RULE►━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     ...buildParsedJsonBlock(0),
     'Exported KPIs + segment rows + simulated human pauses (checkout).',
-    'Current web — JSON (normalized) [Syntax OK]',
+    'Current web: JSON (normalized) [Syntax OK]',
     COMPARE_BLOCK_LEFT,
   );
 
@@ -236,7 +236,7 @@ export function getLeftTerminalLineClass(line: string): string {
   if (/^html\[\d{3}\] │/.test(line)) return 'rw-t-line rw-t-html';
   if (/^json\[\d{3}\] │/.test(line)) return 'rw-t-line rw-t-json';
   if (/^table\[\d{3}\] │/.test(line)) return 'rw-t-line rw-t-html';
-  if (line.startsWith('Current web —')) return 'rw-t-line rw-t-banner';
+  if (line.startsWith('Current web:')) return 'rw-t-line rw-t-banner';
   if (line.startsWith('AGENT') || line.startsWith('← HTTP')) return 'rw-t-line rw-t-http';
   if (
     line.startsWith('Gates detected') ||

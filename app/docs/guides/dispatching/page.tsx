@@ -106,7 +106,7 @@ async def deliver_webhook(subscription, event):
         <a href="https://github.com/eep-dev/EEP/blob/main/docs/current/SPECIFICATION.md" target="_blank" rel="noopener noreferrer">
           SPECIFICATION.md
         </a>{' '}
-        — the loop below is illustrative only.
+        ; the loop below is illustrative only.
       </p>
       <CodeTabs label="Retry Logic"
         ts={`const MAX_RETRIES = 5;

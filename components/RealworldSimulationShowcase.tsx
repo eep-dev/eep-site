@@ -31,10 +31,10 @@ const HUMAN_STEP_DOT_INTERVAL_MS = 450;
 const LEFT_HUMAN_STEP_LINE_INDEX = LEFT_LOG.findIndex((l) => l.startsWith('Human step'));
 const HUMAN_STEP_DOTS = ['.', '..', '...'] as const;
 
-/** Idle preview — same line conventions as the real terminal (abbreviated). */
+/** Idle preview, same line conventions as the real terminal (abbreviated). */
 const IDLE_LEFT_PREVIEW = `►SECTION► · HTML · paywall + checkout + second pass
 <!DOCTYPE html>… paywall → manual card → reload → table → JSON
-▶ Play — full Scenario A (slower than EEP column)`;
+▶ Play: full Scenario A (slower than EEP column)`;
 
 type SimStatus = 'idle' | 'playing' | 'done';
 
@@ -208,7 +208,7 @@ export default function RealworldSimulationShowcase() {
             <p className="section-p rw-sim-lead">
               The <strong>realworld simulation</strong> runs side-by-side in your terminal: a bloated Next.js page
               scraped with Playwright versus the same data behind{' '}
-              <code className="code-inline">@eep-dev/gates</code> — manifest,{' '}
+              <code className="code-inline">@eep-dev/gates</code>: manifest,{' '}
               <code className="code-inline">402</code>, proofs, then raw JSON. Deterministic. No LLM calls. Like the
               repo, the <strong>HTML path stays busy</strong> (viewports, gates, Playwright, exports) while the{' '}
               <strong>EEP path finishes in seconds</strong>.
@@ -231,7 +231,7 @@ export default function RealworldSimulationShowcase() {
                       <span className="rw-pane-dot" />
                       <span className="rw-pane-dot" />
                     </div>
-                    <div className="rw-pane-titlebar">Scenario A — current web</div>
+                    <div className="rw-pane-titlebar">Scenario A: current web</div>
                     <div className="rw-pane-top-end">
                       {leftStreamDone && (
                         <span className="rw-pane-done" title="Scenario A stream complete" aria-label="Complete">
@@ -298,7 +298,7 @@ export default function RealworldSimulationShowcase() {
                     </>
                   ) : (
                     <>
-                      End state: scraped <code className="code-inline">#report-data</code> — high bytes, simulated human
+                      End state: scraped <code className="code-inline">#report-data</code>, high bytes, simulated human
                       steps.
                     </>
                   )}
@@ -348,7 +348,7 @@ export default function RealworldSimulationShowcase() {
                       <span className="rw-pane-dot" />
                       <span className="rw-pane-dot" />
                     </div>
-                    <div className="rw-pane-titlebar">Scenario B — gates + JSON</div>
+                    <div className="rw-pane-titlebar">Scenario B: gates + JSON</div>
                     <div className="rw-pane-top-end">
                       {rightStreamDone && (
                         <span className="rw-pane-done" title="Scenario B stream complete" aria-label="Complete">
@@ -368,12 +368,12 @@ export default function RealworldSimulationShowcase() {
                         <div className="rw-idle-terminal rw-idle-stack" aria-hidden="true">
                           <div>►SECTION► · Manifest · 402</div>
                           <div className="rw-idle-wire">
-                            <span className="rw-log-glyph rw-log-glyph--agent" title="Agent — outbound request">
+                            <span className="rw-log-glyph rw-log-glyph--agent" title="Agent: outbound request">
                               <RwAgentIcon className="rw-log-icon-svg" />
                             </span>
                             <span>GET …/.well-known/eep.json</span>
                           </div>
-                          <div>▶ Play — manifest → 402 → proofs → JSON (repo parity)</div>
+                          <div>▶ Play: manifest → 402 → proofs → JSON (repo parity)</div>
                         </div>
                       ) : (
                         <>
@@ -420,7 +420,7 @@ export default function RealworldSimulationShowcase() {
                     </>
                   ) : (
                     <>
-                      End state: gate-verified <strong>JSON</strong> — no HTML parse, no simulated checkout in the agent
+                      End state: gate-verified <strong>JSON</strong>: no HTML parse, no simulated checkout in the agent
                       path.
                     </>
                   )}

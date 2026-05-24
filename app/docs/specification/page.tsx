@@ -1,4 +1,4 @@
-export const metadata = { title: 'Specification — EEP' };
+export const metadata = { title: 'Specification | EEP' };
 
 export default function SpecificationPage() {
     return (
@@ -328,7 +328,7 @@ Examples:
             <div className="lifecycle-diagram" aria-label="Subscription lifecycle">
                 <ol className="lifecycle-steps">
                     <li>
-                        <strong>Subscribe</strong> — <code>POST /subscribe</code> creates state{' '}
+                        <strong>Subscribe</strong>: <code>POST /subscribe</code> creates state{' '}
                         <code>pending_verification</code>.
                     </li>
                     <li>
@@ -358,13 +358,13 @@ Examples:
             <h2>11. Authentication and Authorization</h2>
             <p>EEP uses two complementary authentication mechanisms:</p>
             <ul>
-                <li><strong>DID-based cryptographic identity</strong> (primary) — agents present a W3C DID and sign gate requirement proofs (Verifiable Credentials, challenge responses, payment hashes). This is the canonical zero-trust auth model.</li>
-                <li><strong>API key</strong> (convenience) — for simple subscriptions without gate requirements, Bearer token auth is accepted.</li>
+                <li><strong>DID-based cryptographic identity</strong> (primary): agents present a W3C DID and sign gate requirement proofs (Verifiable Credentials, challenge responses, payment hashes). This is the canonical zero-trust auth model.</li>
+                <li><strong>API key</strong> (convenience): for simple subscriptions without gate requirements, Bearer token auth is accepted.</li>
             </ul>
-            <pre><code>{`// Simple subscription — API key
+            <pre><code>{`// Simple subscription: API key
 Authorization: Bearer {API_KEY}
 
-// Gated resource — DID proof in request body
+// Gated resource: DID proof in request body
 POST /eep/gate/proof
 { "type": "identity", "did": "did:web:agent.example.com", "signature": "..." }`}</code></pre>
 
@@ -387,9 +387,9 @@ POST /eep/gate/proof
             <h2>12. Discovery</h2>
             <p>Subscribers discover EEP endpoints through three mechanisms:</p>
             <ol>
-                <li><strong>HTTP Link header</strong> — every entity resolution response includes <code>Link: &lt;...&gt;; rel=&quot;subscribe&quot;</code></li>
-                <li><strong>Agent card extension</strong> — A2A agent card includes <code>x-eep</code> extension</li>
-                <li><strong>Well-known document</strong> — <code>GET /.well-known/eep.json</code> returns platform capabilities</li>
+                <li><strong>HTTP Link header</strong>: every entity resolution response includes <code>Link: &lt;...&gt;; rel=&quot;subscribe&quot;</code></li>
+                <li><strong>Agent card extension</strong>: A2A agent card includes <code>x-eep</code> extension</li>
+                <li><strong>Well-known document</strong>: <code>GET /.well-known/eep.json</code> returns platform capabilities</li>
             </ol>
 
             {/* ── Rate Limiting ────────────────────────────── */}

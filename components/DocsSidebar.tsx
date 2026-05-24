@@ -32,7 +32,7 @@ const sections = [
             { href: '/docs/guides/quick-setup', label: 'Quick Setup CLI' },
             {
                 href: 'https://github.com/eep-dev/EEP/blob/main/docs/guides/how-to-setup-cli.md',
-                label: 'Setup CLI — full how-to ↗',
+                label: 'Setup CLI: full how-to ↗',
             },
             {
                 href: 'https://github.com/eep-dev/EEP/blob/main/docs/guides/integrate-eep-after-setup-cli.md',
@@ -74,7 +74,7 @@ const sections = [
             { href: '/whitepaper', label: 'Whitepaper' },
             {
                 href: 'https://github.com/eep-dev/EEP/blob/main/docs/WHITEPAPER.tex',
-                label: 'Whitepaper — LaTeX source ↗',
+                label: 'Whitepaper: LaTeX source ↗',
             },
             {
                 href: 'https://github.com/eep-dev/EEP/blob/main/docs/guides/langgraph-eep-agent.md',

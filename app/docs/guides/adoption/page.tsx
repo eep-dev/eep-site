@@ -1,7 +1,7 @@
 import CodeTabs from '../../../../components/CodeTabs';
 import Link from 'next/link';
 
-export const metadata = { title: 'Adoption Paths — EEP Docs' };
+export const metadata = { title: 'Adoption Paths | EEP Docs' };
 
 export default function AdoptionGuidePage() {
   return (

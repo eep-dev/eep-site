@@ -4,7 +4,7 @@
  */
 
 export function RwAgentIcon({ className }: { className?: string }) {
-  /* Person — “agent” (software actor) */
+  /* Person, “agent” (software actor) */
   return (
     <svg
       className={className}

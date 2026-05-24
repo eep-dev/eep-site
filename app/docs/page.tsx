@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export const metadata = { title: 'Documentation — EEP' };
+export const metadata = { title: 'Documentation | EEP' };
 
 export default function DocsOverview() {
     return (
@@ -46,11 +46,11 @@ export default function DocsOverview() {
 
             <p>Examples:</p>
             <ul>
-                <li><strong>Freelancer profile</strong> — trust score goes up, new skill verified</li>
-                <li><strong>SaaS product</strong> — pricing tier changes, new integration published</li>
-                <li><strong>Supply chain node</strong> — inventory drops below threshold, shipment delayed</li>
-                <li><strong>DAO</strong> — governance vote passes, treasury balance changes</li>
-                <li><strong>AI agent</strong> — deployment updated, capability added, task completed</li>
+                <li><strong>Freelancer profile</strong>: trust score goes up, new skill verified</li>
+                <li><strong>SaaS product</strong>: pricing tier changes, new integration published</li>
+                <li><strong>Supply chain node</strong>: inventory drops below threshold, shipment delayed</li>
+                <li><strong>DAO</strong>: governance vote passes, treasury balance changes</li>
+                <li><strong>AI agent</strong>: deployment updated, capability added, task completed</li>
             </ul>
 
             <h2>The three layers of EEP</h2>
@@ -81,9 +81,9 @@ export default function DocsOverview() {
                     <tr><th>Audience</th><th>How EEP Helps</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Platform developers</strong></td><td>Standard event channel for your entities — any AI agent can subscribe without bespoke integrations</td></tr>
+                    <tr><td><strong>Platform developers</strong></td><td>Standard event channel for your entities, any AI agent can subscribe without bespoke integrations</td></tr>
                     <tr><td><strong>AI agent developers</strong></td><td>One subscription API across every EEP-compliant platform</td></tr>
-                    <tr><td><strong>Enterprise architects</strong></td><td>Vendor-neutral event bus — no cloud lock-in</td></tr>
+                    <tr><td><strong>Enterprise architects</strong></td><td>Vendor-neutral event bus, no cloud lock-in</td></tr>
                 </tbody>
             </table>
 

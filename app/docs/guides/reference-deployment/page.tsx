@@ -1,4 +1,4 @@
-export const metadata = { title: 'Reference deployment — EEP Docs' };
+export const metadata = { title: 'Reference deployment | EEP Docs' };
 
 export default function ReferenceDeploymentPage() {
     return (

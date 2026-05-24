@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import CodeTabs from '../../../../components/CodeTabs';
 
-export const metadata = { title: 'Discovery — EEP Docs' };
+export const metadata = { title: 'Discovery | EEP Docs' };
 
 export default function DiscoveryGuidePage() {
     return (
@@ -39,7 +39,7 @@ export default function DiscoveryGuidePage() {
                 <tbody>
                     <tr><td><code>did</code></td><td>string</td><td>W3C DID of the entity (e.g. <code>did:web:example.com</code>)</td></tr>
                     <tr><td><code>eep_version</code></td><td>string</td><td>Protocol version, e.g. <code>"0.1"</code></td></tr>
-                    <tr><td><code>layers</code></td><td>object</td><td>Endpoint URLs — <code>layer1</code> (REST) is required</td></tr>
+                    <tr><td><code>layers</code></td><td>object</td><td>Endpoint URLs: <code>layer1</code> (REST) is required</td></tr>
                     <tr><td><code>supported_content_types</code></td><td>string[]</td><td>MIME types the entity publishes</td></tr>
                     <tr><td><code>pqc_ready</code></td><td>boolean</td><td>Post-quantum cryptography support</td></tr>
                     <tr><td><code>x402_enabled</code></td><td>boolean</td><td>x402 on-chain payment gate support</td></tr>

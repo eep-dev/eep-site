@@ -1,4 +1,4 @@
-export const metadata = { title: 'IETF/W3C Standards Track — EEP Docs' };
+export const metadata = { title: 'IETF/W3C Standards Track | EEP Docs' };
 
 export default function StandardsTrackPage() {
     return (

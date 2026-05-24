@@ -1,4 +1,4 @@
-export const metadata = { title: 'Protocol Positioning Matrix — EEP Docs' };
+export const metadata = { title: 'Protocol Positioning Matrix | EEP Docs' };
 
 export default function ProtocolPositioningPage() {
   return (

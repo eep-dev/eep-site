@@ -1,4 +1,4 @@
-export const metadata = { title: 'Event Catalog — EEP' };
+export const metadata = { title: 'Event Catalog | EEP' };
 
 export default function EventsPage() {
     return (

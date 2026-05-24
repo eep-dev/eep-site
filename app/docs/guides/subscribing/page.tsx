@@ -21,7 +21,7 @@ Link: <https://api.example.com/eep/stream?source=acme-corp>; rel="monitor"`}</co
                 <tbody>
                     <tr><td><strong>Webhook</strong></td><td>Server-side agents with a public URL</td><td>You provide a URL, we POST events to it</td></tr>
                     <tr><td><strong>SSE</strong></td><td>Lightweight subscribers, browser-based, CLI</td><td>You open a long-lived HTTP connection</td></tr>
-                    <tr><td><strong>WebSocket</strong></td><td>Bidirectional, interactive, low-latency</td><td>Full duplex — send and receive</td></tr>
+                    <tr><td><strong>WebSocket</strong></td><td>Bidirectional, interactive, low-latency</td><td>Full duplex: send and receive</td></tr>
                 </tbody>
             </table>
 

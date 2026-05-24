@@ -147,7 +147,7 @@ export function WhitepaperViewer() {
                             {numPages}
                         </>
                     ) : (
-                        "— / —"
+                        "- / -"
                     )}
                 </span>
                 <button

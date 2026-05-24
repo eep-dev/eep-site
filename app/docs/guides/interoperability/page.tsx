@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import CodeBlock from '../../../../components/CodeBlock';
 
-export const metadata = { title: 'Interoperability (MCP / A2A) — EEP Docs' };
+export const metadata = { title: 'Interoperability (MCP / A2A) | EEP Docs' };
 
 export default function InteroperabilityPage() {
     return (
@@ -15,8 +15,8 @@ export default function InteroperabilityPage() {
 
             <h2>EEP and MCP</h2>
             <p>
-                MCP defines the <em>agent-to-tool</em> layer — how an LLM accesses tools, resources, and prompts from a server.
-                EEP operates at the <em>entity-to-agent network</em> layer — how entities publish state and control access.
+                MCP defines the <em>agent-to-tool</em> layer: how an LLM accesses tools, resources, and prompts from a server.
+                EEP operates at the <em>entity-to-agent network</em> layer: how entities publish state and control access.
                 The two protocols are complementary, not competing.
             </p>
             <table>
@@ -32,7 +32,7 @@ export default function InteroperabilityPage() {
             </table>
             <p>
                 <strong>Example:</strong> An agent uses MCP for local <code>web-search</code> and <code>code-runner</code> tools,
-                and uses EEP to subscribe to a financial data publisher&apos;s real-time price feed — paying via x402 and
+                and uses EEP to subscribe to a financial data publisher&apos;s real-time price feed, paying via x402 and
                 verifying the publisher&apos;s EEP Conformance Credential.
             </p>
 
@@ -55,7 +55,7 @@ export default function InteroperabilityPage() {
             <p>
                 ActivityPub (Mastodon) and AT Protocol (Bluesky) are human-centric social communication protocols.
                 EEP is agent-centric. Publishers can expose EEP endpoints <strong>alongside</strong> their existing feeds
-                — their content becomes available to agents in structured form without abandoning their social presence.
+                ; their content becomes available to agents in structured form without abandoning their social presence.
             </p>
             <table>
                 <thead><tr><th>Capability</th><th>ActivityPub</th><th>AT Protocol</th><th>EEP</th></tr></thead>
@@ -82,7 +82,7 @@ export default function InteroperabilityPage() {
                 <li>Transform backend events to CloudEvents format for SSE/Webhook delivery</li>
             </ol>
 
-            <CodeBlock language="yaml" code={`# Kong Gateway — add EEP Link headers
+            <CodeBlock language="yaml" code={`# Kong Gateway: add EEP Link headers
 plugins:
   - name: response-transformer
     config:
@@ -93,7 +93,7 @@ plugins:
 
             <h2>Next steps</h2>
             <ul>
-                <li><Link href="/docs/guides/discovery">Discovery — manifest, Link headers, DNS →</Link></li>
+                <li><Link href="/docs/guides/discovery">Discovery: manifest, Link headers, DNS →</Link></li>
                 <li><Link href="/docs/specification">Full specification →</Link></li>
                 <li><Link href="/docs/packages">Packages &amp; SDKs →</Link></li>
             </ul>

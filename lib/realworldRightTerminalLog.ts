@@ -1,5 +1,5 @@
 /**
- * Scenario B — lines aligned with `EEP/realworld-simulation/provider/eep-server/server.ts`
+ * Scenario B: lines aligned with `EEP/realworld-simulation/provider/eep-server/server.ts`
  * and `scenario_b/eep_agent.py`. Full manifest / 402 / POST body / 200 JSON (no ellipsis).
  */
 
@@ -19,7 +19,7 @@ const DEMO_PAY_TOKEN =
   'tx_demo_s0lana_devnet_mock_usdc_0d01_to_DEMO_WALLET_CORPX_Q1_settled';
 
 export const RIGHT_LOG: readonly string[] = [
-  'EEP path — manifest + gate negotiation (deterministic client, no LLM)',
+  'EEP path: manifest + gate negotiation (deterministic client, no LLM)',
   '►SECTION► · Manifest',
   '►RULE►━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
   'AGENT  GET http://127.0.0.1:3402/.well-known/eep.json',
@@ -45,7 +45,7 @@ export const RIGHT_LOG: readonly string[] = [
   'json[018] │     }',
   'json[019] │   ]',
   'json[020] │ }',
-  'EEP path — state resource · first GET (no proofs yet)',
+  'EEP path: state resource · first GET (no proofs yet)',
   '►SECTION► · HTTP · 402 Payment Required',
   '►RULE►────────────────────────────────────────',
   'AGENT  GET http://127.0.0.1:3402/eep/state/reports/corpx-q1',
@@ -73,7 +73,7 @@ export const RIGHT_LOG: readonly string[] = [
   'json[041] │ }',
   '  requirement[0]: type=agreement',
   '  requirement[1]: type=payment',
-  'EEP path — policy + wallet · satisfy gates',
+  'EEP path: policy + wallet · satisfy gates',
   '►SECTION► · Proofs · agreement signature + mock settlement',
   '►RULE►━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
   'EEP    Operator policy: micro-payment allowed for this demo resource.',
@@ -122,18 +122,18 @@ export function getRightTerminalRowClass(line: string): string {
   if (line === COMPARE_BLOCK_RIGHT) return 'rw-t-line rw-compare-host';
   if (line.startsWith('►SECTION►')) return 'rw-t-line rw-t-section';
   if (line.startsWith('►RULE►')) return 'rw-t-line rw-t-rule';
-  if (line.startsWith('EEP path —')) return 'rw-t-line rw-t-banner';
+  if (line.startsWith('EEP path:')) return 'rw-t-line rw-t-banner';
   if (/^json\[\d{3}\] │/.test(line)) return 'rw-t-line rw-t-json';
   return 'rw-t-line rw-eep-row';
 }
 
-/** Plain monospace — no token coloring (sections, JSON rows, export). */
+/** Plain monospace, no token coloring (sections, JSON rows, export). */
 export function isRightPlainTerminalLine(line: string): boolean {
   if (line === COMPARE_BLOCK_RIGHT) return false;
   return (
     line.startsWith('►SECTION►') ||
     line.startsWith('►RULE►') ||
-    line.startsWith('EEP path —') ||
+    line.startsWith('EEP path:') ||
     /^json\[\d{3}\] │/.test(line)
   );
 }

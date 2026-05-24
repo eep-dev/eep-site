@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { RwAgentIcon, RwServerIcon } from '@/components/TerminalLogIcons';
 
 /**
- * Token-colored line content — mirrors `eep_flow_style.stylize_eep_plain_line` categories
+ * Token-colored line content, mirrors `eep_flow_style.stylize_eep_plain_line` categories
  * (AGENT, EEP, ← HTTP status, GET/POST + URL, requirements, proofs).
  */
 export function EepTerminalLineContent({ line }: { line: string }): ReactNode {
@@ -14,7 +14,7 @@ export function EepTerminalLineContent({ line }: { line: string }): ReactNode {
       code.startsWith('2') ? 'rw-eep-http-2' : code.startsWith('4') ? 'rw-eep-http-4' : 'rw-eep-http-other';
     return (
       <>
-        <span className="rw-log-glyph rw-log-glyph--server" title="Server — HTTP response">
+        <span className="rw-log-glyph rw-log-glyph--server" title="Server: HTTP response">
           <RwServerIcon className="rw-log-icon-svg" />
         </span>
         <span className="rw-eep-arrow">{httpResp[1]}</span>
@@ -31,7 +31,7 @@ export function EepTerminalLineContent({ line }: { line: string }): ReactNode {
     if (m) {
       return (
         <>
-          <span className="rw-log-glyph rw-log-glyph--agent" title="Agent — outbound request">
+          <span className="rw-log-glyph rw-log-glyph--agent" title="Agent: outbound request">
             <RwAgentIcon className="rw-log-icon-svg" />
           </span>
           <span className="rw-eep-dim">{m[1]}</span>
@@ -44,7 +44,7 @@ export function EepTerminalLineContent({ line }: { line: string }): ReactNode {
     }
     return (
       <>
-        <span className="rw-log-glyph rw-log-glyph--agent" title="Agent — outbound request">
+        <span className="rw-log-glyph rw-log-glyph--agent" title="Agent: outbound request">
           <RwAgentIcon className="rw-log-icon-svg" />
         </span>
         <span className="rw-eep-rest">{rest}</span>
@@ -54,7 +54,7 @@ export function EepTerminalLineContent({ line }: { line: string }): ReactNode {
 
   if (line.startsWith('EEP')) {
     return (
-      <span title="EEP stack — proofs / policy">
+      <span title="EEP stack: proofs / policy">
         <span className="rw-eep-brand">EEP</span>
         <span className="rw-eep-rest">{line.slice(3)}</span>
       </span>
@@ -83,7 +83,7 @@ export function EepTerminalLineContent({ line }: { line: string }): ReactNode {
 
   if (/unmet|402|Payment Required/i.test(line)) {
     return (
-      <span className="rw-eep-challenge" title="Payment required — gates not satisfied yet">
+      <span className="rw-eep-challenge" title="Payment required: gates not satisfied yet">
         {line}
       </span>
     );

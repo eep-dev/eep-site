@@ -1,6 +1,6 @@
 import CodeTabs from '../../../components/CodeTabs';
 
-export const metadata = { title: 'JSON Schemas — EEP Docs' };
+export const metadata = { title: 'JSON Schemas | EEP Docs' };
 
 export default function SchemasPage() {
     return (

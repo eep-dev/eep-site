@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import adoptersData from '@/data/adopters.json';
 
-export const metadata = { title: 'Adopters — EEP' };
+export const metadata = { title: 'Adopters | EEP' };
 
 type Adopter = {
     id: string;
@@ -20,7 +20,7 @@ export default function AdoptersPage() {
             <div className="container" style={{ maxWidth: 960, margin: '0 auto' }}>
             <h1>Adopters &amp; integrations (seed)</h1>
             <p>
-                Early <strong>examples and infrastructure</strong> around the Entity Engagement Protocol. This list is versioned in git—no
+                Early <strong>examples and infrastructure</strong> around the Entity Engagement Protocol. This list is versioned in git; no
                 marketplace or ranking. See the{' '}
                 <Link href="https://github.com/eep-dev/EEP/blob/main/registry/adopters.json">source JSON</Link> in the EEP repo.
             </p>

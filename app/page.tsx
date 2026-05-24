@@ -8,7 +8,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 /* ── Quick Start code examples ───────────────────── */
 const QS_JS = `import { createHmac } from 'crypto';
 
-// Subscribe via SSE — no webhook server needed
+// Subscribe via SSE: no webhook server needed
 const stream = new EventSource(
   'https://api.example.com/eep/stream?source=acme-corp',
   { headers: { Authorization: \`Bearer \${API_KEY}\` } }
@@ -95,7 +95,7 @@ export default function Home() {
             </ScrollReveal>
             <ScrollReveal variant="up" delay={150}>
               <div className="hero-right">
-                <div className="hero-code-label">CloudEvent — live signal</div>
+                <div className="hero-code-label">CloudEvent: live signal</div>
                 <CodeBlock language="json" code={`{
   "specversion": "1.0",
   "type": "com.example.entity.updated",
@@ -247,7 +247,7 @@ Link: <.../subscribe>; rel="subscribe"`} />
                 </div>
               </div>
               <div>
-                <CodeBlock language="json" code={`// HTTP 402 — machine-readable gate challenge
+                <CodeBlock language="json" code={`// HTTP 402: machine-readable gate challenge
 {
   "gate_id": "premium_dataset_v1",
   "missing_requirements": [
@@ -319,7 +319,7 @@ Link: <.../subscribe>; rel="subscribe"`} />
                   <td><code>compliance-cli</code></td>
                   <td><code className="code-inline">@eep-dev/compliance-cli</code></td>
                   <td><code className="code-inline">eep-compliance-cli</code></td>
-                  <td>End-to-end conformance test runner — point it at any EEP platform</td>
+                  <td>End-to-end conformance test runner: point it at any EEP platform</td>
                 </tr>
                 <tr>
                   <td><code>mcp-bridge</code></td>
@@ -336,8 +336,8 @@ Link: <.../subscribe>; rel="subscribe"`} />
                 <tr>
                   <td><code>setup-cli</code></td>
                   <td><code className="code-inline">@eep-dev/setup-cli</code></td>
-                  <td>—</td>
-                  <td><code className="code-inline">eep-setup</code>: init, inject, apply, verify — presets, CI <code className="code-inline">--answers</code>, <code className="code-inline">--production</code> guardrails</td>
+                  <td>-</td>
+                  <td><code className="code-inline">eep-setup</code>: init, inject, apply, verify, presets, CI <code className="code-inline">--answers</code>, <code className="code-inline">--production</code> guardrails</td>
                 </tr>
               </tbody>
             </table>
@@ -352,8 +352,8 @@ Link: <.../subscribe>; rel="subscribe"`} />
             <h2 className="section-h2">From zero to a verified manifest.</h2>
             <p className="section-p">
               Run the dual-runtime Docker reference, or wire <code className="code-inline">eep-setup</code> and middleware into your own repo.
-              The five-minute proof paths cover Compose, CLI-only flows, and a minimal Express example — then add CI checks for EEP-ready artifacts and full compliance tiers.
-              For a full production deployment that exercises every conformance tier and gate type, see <a href="https://more.md" target="_blank" rel="noopener noreferrer">more.md</a> — the platform where EEP originated.
+              The five-minute proof paths cover Compose, CLI-only flows, and a minimal Express example, then add CI checks for EEP-ready artifacts and full compliance tiers.
+              For a full production deployment that exercises every conformance tier and gate type, see <a href="https://more.md" target="_blank" rel="noopener noreferrer">more.md</a>, the platform where EEP originated.
             </p>
             <ul>
               <li><Link href="/docs/guides/quick-setup">Quick setup (CLI + integration) →</Link></li>
@@ -367,7 +367,7 @@ Link: <.../subscribe>; rel="subscribe"`} />
                 <a href="https://github.com/eep-dev/EEP/blob/main/docs/guides/eep-positioning-complementary.md" target="_blank" rel="noopener noreferrer">How EEP complements MCP / A2A ↗</a>
               </li>
               <li>
-                <a href="https://github.com/eep-dev/EEP/blob/main/docs/guides/realworld-simulation.md" target="_blank" rel="noopener noreferrer">Realworld simulation — HTML vs EEP (terminal demo) ↗</a>
+                <a href="https://github.com/eep-dev/EEP/blob/main/docs/guides/realworld-simulation.md" target="_blank" rel="noopener noreferrer">Realworld simulation: HTML vs EEP (terminal demo) ↗</a>
               </li>
             </ul>
           </ScrollReveal>

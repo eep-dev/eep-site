@@ -1,6 +1,6 @@
 import CodeTabs from '../../../../components/CodeTabs';
 
-export const metadata = { title: 'Verification & Scoring — EEP Docs' };
+export const metadata = { title: 'Verification & Scoring | EEP Docs' };
 
 export default function VerificationGuidePage() {
   return (
@@ -48,7 +48,7 @@ fi`}</code></pre>
       <h2>Setup vs compliance reports</h2>
       <p>
         <code>@eep-dev/compliance-cli</code> scores a <strong>live</strong> deployment.{' '}
-        <code>eep-setup verify</code> scores <strong>generated files</strong> on disk — use both where applicable; see{' '}
+        <code>eep-setup verify</code> scores <strong>generated files</strong> on disk; use both where applicable; see{' '}
         <a
           href="https://github.com/eep-dev/EEP/blob/main/docs/guides/eep-ready-verification.md"
           target="_blank"

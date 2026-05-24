@@ -11,7 +11,7 @@ export default function PackagesPage() {
                 <code>eep-gates</code>, <code>eep-discovery</code>, <code>eep-compliance-cli</code>, <code>eep-mcp-bridge</code>,{' '}
                 <code>eep-middleware</code>). Core libraries are framework-agnostic;{' '}
                 <code>@eep-dev/middleware</code> / <code>eep-middleware</code> add Express, Fastify, Hono, Koa, FastAPI, Flask, and Django bindings.{' '}
-                <code>@eep-dev/setup-cli</code> publishes the <code>eep-setup</code> binary (no Python counterpart — generate artifacts from Node).{' '}
+                <code>@eep-dev/setup-cli</code> publishes the <code>eep-setup</code> binary (no Python counterpart; generate artifacts from Node).{' '}
                 Node.js requirements are package-specific: <code>@eep-dev/compliance-cli</code> requires Node.js &gt;= 22; other TS packages support Node.js &gt;= 18.
             </p>
 

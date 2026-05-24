@@ -7,7 +7,7 @@ export type CompareRow = { label: string; value: string };
 
 /**
  * Modeled discrete agent moves (outbound HTTP, Playwright ops, HTML parse passes, waits,
- * human coordination, merge)—not terminal line count. Tune when the Scenario A/B logs change.
+ * human coordination, merge), not terminal line count. Tune when the Scenario A/B logs change.
  */
 export const MODELED_AGENT_ACTIONS_LEFT = 27;
 export const MODELED_AGENT_ACTIONS_RIGHT = 6;
@@ -25,7 +25,7 @@ export function buildLeftCompareRows(): readonly CompareRow[] {
     },
     {
       label: 'Human in the loop',
-      value: '1 — simulated card capture before unlock',
+      value: '1: simulated card capture before unlock',
     },
     {
       label: 'Path',
@@ -47,7 +47,7 @@ export function buildRightCompareRows(): readonly CompareRow[] {
     },
     {
       label: 'Human in the loop',
-      value: '0 — agreement signature + mock USDC by agent',
+      value: '0: agreement signature + mock USDC by agent',
     },
     {
       label: 'Path',

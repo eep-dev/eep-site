@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EEP — Entity Engagement Protocol",
+  title: "EEP: Entity Engagement Protocol",
   description: "The open standard for real-time, agent-native communication between digital entities. Zero-trust by design with fail-closed gates, compliance scoring, and machine-actionable onboarding.",
   icons: {
     icon: [{ url: "/favicon.png", sizes: "32x32", type: "image/png" }],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "EEP — Entity Engagement Protocol",
+    title: "EEP: Entity Engagement Protocol",
     description: "Agent-native event protocol with strict fail-closed access controls and automated compliance verification.",
     url: "https://eep.dev",
     siteName: "EEP",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         url: "/eep-logo-small.png",
         width: 1200,
         height: 630,
-        alt: "EEP — Entity Engagement Protocol",
+        alt: "EEP: Entity Engagement Protocol",
       },
     ],
   },
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* Blocking script — runs before first paint, eliminates dark-mode FOUC */}
+        {/* Blocking script, runs before first paint, eliminates dark-mode FOUC */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
