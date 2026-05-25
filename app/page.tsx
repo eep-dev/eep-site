@@ -266,6 +266,50 @@ Link: <.../subscribe>; rel="subscribe"`} />
         </div>
       </section>
 
+      {/* ── Recorded terminal demo (raw output, complements the styled showcase below) ──── */}
+      <section className="section section-alt">
+        <div className="container">
+          <ScrollReveal variant="up">
+            <div style={{ textAlign: 'center', maxWidth: 900, margin: '0 auto' }}>
+              <p style={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '0.75rem', opacity: 0.7, marginBottom: 8 }}>
+                Raw recording — no styling
+              </p>
+              <h2 style={{ fontSize: '2rem', marginBottom: 12, lineHeight: 1.2 }}>
+                What it actually looks like in your terminal
+              </h2>
+              <p style={{ opacity: 0.75, marginBottom: 24, fontSize: '1rem' }}>
+                Both scenarios start at the same moment, in two parallel panes. The EEP pane
+                (right) finishes in <strong>~10&nbsp;s</strong> while the current-web pane (left) is still
+                busy with Playwright extraction at <strong>~26&nbsp;s</strong>. Deterministic, no LLM calls.
+                The interactive walkthrough is below.
+              </p>
+              <video
+                src="/realworld-demo.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Split-screen recording: two terminal panes side by side, both running simultaneously. Left pane is an agent scraping HTML over the current web (~26s, ~46KB, ~11.5K tokens, 2 simulated human steps). Right pane is the same agent fetching the same data via EEP (~10s, ~2.2KB, ~386 tokens, 0 human steps). After both finish, a full-width comparison table appears."
+                style={{
+                  width: '100%',
+                  maxWidth: 1100,
+                  borderRadius: 12,
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+                }}
+              />
+              <p style={{ marginTop: 16, fontSize: '0.875rem', opacity: 0.6 }}>
+                Reproducible: <code>vhs realworld-simulation/demo.tape</code> in{' '}
+                <Link href="https://github.com/eep-dev/EEP/tree/main/realworld-simulation" style={{ textDecoration: 'underline' }}>
+                  eep-dev/EEP
+                </Link>
+                .
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <RealworldSimulationShowcase />
 
       {/* ── Packages table ───────────────────────────── */}
