@@ -1,0 +1,28 @@
+{
+  "did": "did:web:eep.dev",
+  "eep_version": "0.1",
+  "eep_versions": ["0.1"],
+  "preferred_version": "0.1",
+  "layers": {
+    "layer1": "https://eep.dev/api/state"
+  },
+  "supported_content_types": [
+    "application/json",
+    "text/markdown",
+    "text/html"
+  ],
+  "pqc_ready": false,
+  "x402_enabled": false,
+  "compliance": {
+    "gdpr": true,
+    "anp_compatible": true
+  },
+  "data_residency": "Worldwide",
+  "pricing_mode": "fixed",
+  "tls_mode": "standard",
+  "forward_secrecy_enforced": true,
+  "discovery_hints": {
+    "link_header_supported": false
+  },
+  "updated_at": "2026-05-25T00:00:00Z"
+}
