@@ -1,0 +1,25 @@
+{
+  "name": "EEP (Entity Engagement Protocol)",
+  "description": "An open standard for push-based, verifiable communication between digital entities and the agents that follow them. EEP defines a discovery manifest, signed event delivery over SSE and webhooks, and optional access gates (payment, credential, identity).",
+  "homepage": "https://eep.dev",
+  "documentation": "https://eep.dev/docs",
+  "specification": "https://eep.dev/docs/specification",
+  "repository": "https://github.com/eep-dev/EEP",
+  "license": "Apache-2.0",
+  "version": "0.1",
+  "contact": "hello@eep.dev",
+  "manifest": "https://eep.dev/.well-known/eep.json",
+  "llms_txt": "https://eep.dev/llms.txt",
+  "llms_full_txt": "https://eep.dev/llms-full.txt",
+  "tags": [
+    "agent-protocol",
+    "agentic-ai",
+    "cloudevents",
+    "decentralized-identity",
+    "mcp",
+    "real-time",
+    "server-sent-events",
+    "verifiable-credentials",
+    "webhooks"
+  ]
+}
